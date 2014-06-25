@@ -1,0 +1,66 @@
+
+/*
+This is just an example for a style sheet that sets the headers' style based on the toc level
+*/
+
+body {
+	font: 12px arial, helvetica,arial,freesans,clean,sans-serif;
+	color:black;
+	line-height:1.4em;
+	background-color: #F8F8F8;
+	padding: 2em 2em;
+}
+
+
+/* Headers */
+h1, h2, h3, h4, h5, h6
+{
+	margin-bottom: 0.5em;
+	margin-top: 1em;
+	padding-bottom: 0.15em;
+	border-bottom: 1px solid #ccc;
+	background: transparent;
+	color: #005a9c;
+	font-weight: normal;
+}
+
+h1
+{
+	border-bottom: none;
+}
+
+h5, h6 {
+	border: none;
+	font-size: 100%;
+}
+
+
+/* 
+These come partially from the html.css file, but adapted to the headertoclevel classes; plus other,
+similar adaptation
+*/
+.headertoclevel1, .headertoclevel2, .headertoclevel3, .headertoclevel4
+{
+	border-bottom: 1px solid #ccc !important;
+}
+
+.headertoclevel1  
+{
+  font-size: 1.5em !important;
+}
+
+.headertoclevel2 
+{
+  font-size: 1.17em !important;
+}
+
+.headertoclevel3
+{
+	font-size: 1em !important;
+}
+
+.headertoclevel4, .headertoclevel5 {
+	border: none !important;
+	font-size: 1em !important;	
+}
+

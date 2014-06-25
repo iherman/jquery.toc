@@ -1,0 +1,278 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<style>
+*{margin:0;padding:0;}
+body {
+	font: 12px arial, helvetica,arial,freesans,clean,sans-serif;
+	color:black;
+	line-height:1.4em;
+	background-color: #F8F8F8;
+	padding: 0em 2em;
+}
+
+p {
+	margin-top: 0.8em;
+}
+
+table {
+	font-size:inherit;
+	font:100%;
+	margin:1em;
+}
+
+td {  
+  padding-left: 0.3em;
+}
+
+th {  
+  font-weight: bold;  
+  text-align: center;  
+  background-color: NavyBlue !important; 
+  font-size: 110%;
+  background: hsl(180, 30%, 50%); 
+  color: #fff;
+}
+
+th a:link {
+  color: #fff;
+}
+
+th a:visited {
+  color: #aaa;
+}
+
+tr:nth-child(even) { background-color: hsl(180, 30%, 93%) }
+
+table th{border-bottom:1px solid #bbb;padding:.2em 1em;}
+table td{border-bottom:1px solid #ddd;padding:.2em 1em;}
+
+
+select,option{padding:0 .25em;}
+optgroup{margin-top:.5em;}
+
+pre,code{font:12px Monaco,"Courier New","DejaVu Sans Mono","Bitstream Vera Sans Mono",monospace;}
+pre {
+	margin:1em 0;
+	background-color:#eee;
+	border:1px solid #ddd;
+	padding:5px;
+	line-height:1.5em;
+	color:#444;
+	overflow:auto;
+	-webkit-box-shadow:rgba(0,0,0,0.07) 0 1px 2px inset;
+	-webkit-border-radius:3px;
+	-moz-border-radius:3px;border-radius:3px;
+}
+pre code {
+	padding:0;
+	font-size:10px;
+	background-color:#eee;
+	border:none;
+}
+code {
+	background-color:#f8f8ff;
+	color:#444;
+	padding:0 .2em;
+	border:1px solid #dedede;
+}
+
+img{border:0;max-width:100%;}
+abbr{border-bottom:none;}
+
+a{color:#4183c4;}
+
+a:link, a:active {
+  background: transparent;
+  text-decoration:none;
+}
+
+a:visited {
+  color: #529;
+  background: transparent;
+}
+
+a:hover{background-color: yellow; color: #00e;}
+
+a code,a:link code,a:visited code{color:#4183c4;}
+
+a:link img, a:visited img {
+   border-style: none
+}
+
+h1, h2, h3, h4, h5, h6
+{
+	margin-bottom: 0.5em;
+	margin-top: 1em;
+	padding-bottom: 0.15em;
+	border-bottom: 1px solid #ccc;
+	background: transparent;
+	color: #005a9c;
+	font-weight: normal;
+}
+
+h1
+{
+	border-bottom: none;
+	background: transparent;
+	/* color: #000; */
+}
+
+h4, h5, h6 {border: none;}
+
+
+hr{border:1px solid #ddd;}
+
+ul{margin:1em 0 1em 2em;}
+ol{margin:1em 0 1em 2em;}
+ul li,ol li{margin-top:.5em;margin-bottom:.5em;}
+ul ul,ul ol,ol ol,ol ul{margin-top:0;margin-bottom:0;}
+
+ul.toc {
+  list-style: disc;
+  list-style: none;
+}
+
+blockquote{margin:1em 0;border-left:5px solid #ddd;padding-left:.6em;color:#555;}
+dt{font-weight:bold;margin-left:1em;}
+dd{margin-left:2em;margin-bottom:1em;}
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+}
+</style>
+<title>Table of Content (TOC) script</title>
+
+</head>
+<body>
+<h1>Table of Content (TOC) script</h1>
+
+<p>Dynamic Table of Content (TOC) generation based on jQuery.</p>
+
+<h2>Usage</h2>
+
+<p>Include</p>
+
+<pre><code>&lt;!-- Reference to jQuery; this is just an example, adapt it to the local location of the package --&gt; 
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="your_path_to/jquery.headers.toc.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>or</p>
+
+<pre><code>&lt;!-- Reference to jQuery; this is just an example, adapt it to the local location of the package --&gt; 
+&lt;script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"&gt;&lt;/script&gt;
+&lt;script src="your_path_to_toc/jquery.sections.toc.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Depending on whether you want to use the versions based on the <a href="#header">traditional HTML header elements</a> or the <a href="#section">HTML5 <code>&lt;section&gt;</code> elements</a>. The following style files:</p>
+
+<pre><code>&lt;link rel="stylesheet" type="text/css" href="your_path_to_toc/css/jquery.toc.css"/&gt;
+&lt;link rel="stylesheet" type="text/css" href="your_path_to_toc/css/mystyle.css"/&gt;
+</code></pre>
+
+<p>are included in the repository to show how css styling can be used to adapt the presentation of the TOC. Salt 'n pepper on taste.</p>
+
+<p>In the HTML source itself, the TOC placeholder:</p>
+
+<pre><code>&lt;div id="toc"&gt;&lt;/div&gt;
+</code></pre>
+
+<p>will contain, after processing, the TOC. If the <a href="#section">version based on sectioning</a> is used, one can also use</p>
+
+<pre><code>&lt;section id="toc"&gt;&lt;/section&gt;
+</code></pre>
+
+<h2>General features</h2>
+
+<p>The following element is added to the TOC placeholder:</p>
+
+<pre><code>&lt;h2 id="toctitle"&gt;Table of content:&lt;/h2&gt;
+</code></pre>
+
+<p>which is followed by the TOC itself through a <code>&lt;ul&gt;</code> element (see below). The headers themselves are based either on the <code>&lt;h2&gt;...&lt;/h6&gt;</code> elements (<code>&lt;h1&gt;</code> is reserved for the document title) when using <code>jquery.headers.toc.js</code>, or the <code>&lt;section&gt;</code> elements when using <code>jquery.sections.toc.js</code> (see <a href="#section">below</a> for more details).</p>
+
+<p>(It would be more elegant to use the locale to add the TOC title in local language. T.B.D.)</p>
+
+<p>Each header in the text is prepended with the section number, using a <code>&lt;span&gt;</code> with a number-dependent <code>@id</code>. E.g., if the text of the 12th <code>&lt;h2&gt;</code> is "Title", the following structure will be generated into the final DOM:</p>
+
+<pre><code>&lt;h2&gt;&lt;span id="id_12"&gt;12. &lt;/span&gt;Title&lt;/h2&gt;
+</code></pre>
+
+<p>The TOC entries themselves are put into an <code>&lt;ul&gt;</code>; each entry is an <code>&lt;li&gt;</code>. The <code>&lt;li&gt;</code> elements may include additional <code>&lt;ul&gt;</code> elements for a TOC hierarchy.</p>
+
+<p>The <code>&lt;ul&gt;</code>-s are set to the classes <code>toc</code> as well as <code>toclevel1</code>,<code>toclevel3</code>, ...,<code>toclevel5</code>, depending on the TOC level. The section number is also added to the entry enclosed by a <code>&lt;spam&gt;</code>.</p>
+
+<p>E.g., a TOC entry for the item above looks like:</p>
+
+<pre><code>&lt;ul class="toc toclevel1"&gt;
+    &lt;li&gt;&lt;span class="tocnumber"&gt;12. &lt;/span&gt;&lt;a href="#id_12"&gt;Title&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<h4><span id="interaction">Interaction with the TOC</span></h4>
+
+<p>The whole TOC can be hidden by clicking on the title. By default, the title is set to the class <code>tocvisible</code>; when made invisible, the class changes to <code>tocinvisible</code>. This can be used for styling (e.g., adding a different arrow to the beginning of the text). The default visibility can be changed through a <a href="#globalcontrol">global control attribute</a>.</p>
+
+<p>Similar interactions are possible with any TOC item that also includes a sub-hierarchy. The number preceding the TOC entry can be clicked hide corresponding sub-hierarchy or make it visible again. By default, the sub-hierarchy is visible; this default visibility can be changed through a control attribute (see below for the <a href="#headercontrol">header</a> and <a href="#sectioncontrol">section</a> cases, respectively).The number itself is enclosed in a <code>span</code> element of classes <code>tocnumber</code> plus the <code>tocvisible</code> or <code>tocinvisible</code>, depending on whether the sub-hierarchy is visible or invisible, respectively. These classes can also be used for styling (e.g., putting a different arrow to the beginning of the text).</p>
+
+<h2>Header/section control</h2>
+
+<p>As mentioned above, there are two version of the script: one using the <code>&lt;h2&gt;...&lt;/h6&gt;</code> elements the other uses the <code>&lt;section&gt;</code> elements.</p>
+
+<h3><span id="header"><code>jquery.headers.toc.js</code></span></h3>
+
+<p>This version uses the traditional <code>&lt;h2&gt;...&lt;/h6&gt;</code> elements in document order and in hierarchy depth to establish the sections and the TOC entries. <code>h1</code> is not used: this is reserved for the full document title.</p>
+
+<h4><span id="headercontrol">Special attributes</span></h4>
+
+<ul>
+<li><code>@data-notoc</code>: a particular entry can be removed from TOC processing by adding the <code>data-notoc</code> attribute to the <code>&lt;h2&gt;...&lt;h6&gt;</code> element.</li>
+<li><code>@data-tochidden</code>: by default, if the generated section has sub-sections, the corresponding sub-hierarchy in the generated TOC is visible and can be hidden by <a href="#interaction">user interaction</a>. If the <code>data-tochidden</code> attribute is used, the default for the sub-hierarchy is to be hidden (and can be made visible by user interaction).</li>
+</ul>
+
+
+<h3><span id="section"><code>jquery.sections.toc.js</code></span></h3>
+
+<p>Section is based on the <code>&lt;section&gt;&lt;hx&gt;...&lt;/hx&gt;...&lt;/section&gt;</code> or <code>&lt;main&gt;&lt;hx&gt;...&lt;/hx&gt;...&lt;/main&gt;</code> type structures (note that <code>&lt;main&gt;</code> <a href="http://www.w3.org/TR/html5/grouping-content.html#the-main-element">can appear only once</a>). The "depth" of the hierarchy of <code>&lt;section&gt;</code>/<code>&lt;main&gt;</code> elements is used for sectioning and TOC control; the header itself can be any of <code>&lt;h1&gt;...&lt;h6&gt;</code>, they are all treated equally. To make styling easier, the class of each of these header elements are extended to a class reflecting their position in the hierarchy, i.e., <code>headertoclevel1</code> to <code>headertoclevel6</code>.</p>
+
+<h4><span id="sectioncontrol">Special attributes</span></h4>
+
+<ul>
+<li><code>@data-notoc</code>: a particular section, <em>and its full sub-hierarchy</em>, can be removed from TOC processing by adding the <code>data-notoc</code> attribute to the <code>&lt;section&gt;</code> element.</li>
+<li><code>@data-tochidden</code>: by default, if the section has sub-sections, the corresponding sub-hierarchy in the generated TOC is visible and can be hidden by <a href="#interaction">user interaction</a>. If the <code>data-tochidden</code> attribute is used on the <code>&lt;section&gt;</code>, the default for the sub-hierarchy is to be hidden (and can be made visible by user interaction).</li>
+</ul>
+
+
+<h2><span id="globalcontrol">Global Control</span></h2>
+
+<p>Special attributes on the <code>head</code> element can be used for a global control:</p>
+
+<ul>
+<li><code>@data-tochidden</code>: sets the initial visibility of the TOC; by default it is visible (and can be toggled by clicking on it). By adding this attribute the TOC is initially invisible (only the title is displayed).</li>
+<li><code>@data-tocmaxlevel=N</code>: sets the "depth" of the TOC.
+
+<ul>
+<li>in the <a href="#header">"headers" version</a>: the value of 1,2,3,4, or 5 sets the maximum depth used. Setting it to the value of "1" means that only the <code>h2</code> element is used; a value of "5" means that all headers will be included until <code>h6</code> (the default case). If the value is "0", the TOC generation is switched off altogether.</li>
+<li>in the <a href="#section">"sections" version</a>: the value of 1,2,3,4, or 5 sets the maximum depth used. Setting it to the value of "1" means that only the top level <code>&lt;section&gt;</code> or <code>&lt;main&gt;</code> element is considered; value of "5" means that all <code>&lt;section&gt;</code>-s until depth of 5 are used (default). If the value is "0", the TOC generation is switched off altogether.</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
