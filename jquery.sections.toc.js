@@ -39,14 +39,13 @@ $(document).ready(function() {
 
  	/* Any section header can be used... */
 	var selector = "section > h1, section > h2, section > h3, section > h4, section > h5, section > h6";
-	selector    += ", main > h1, main > h2, main > h3, main > h4, main > h5, main > h6"
 	$(selector).each(function(index) {
 		/* The nice aspects of sectioning: one can look at any of the ancestor sections to see if toc has been removed */
 		/* Ie, one can remove a whole hierarchy from TOC by putting data-notoc on the section element */
 		if( $(this).parents("section[data-notoc]").length > 0 ) return;
 
 		/* Establish the current sectioning level */
-		var level = $(this).parents("section, main").length;
+		var level = $(this).parents("section").length;
 
 		/* If the level is deeper than what is requested, stop it here */
 		if( level > maxlevel ) return;
@@ -61,7 +60,7 @@ $(document).ready(function() {
 				++i2;
 				i3 = 0; i4 = 0; i5 = 0;
 				section_num = i1 + "." + i2;
-				if (i1 === 1) {
+				if (i2 === 1) {
 					// We have to add <ul> to the top...
 					current_ul = $('<ul class="toc toclevel2"></ul>');
 					toc.children().eq(i1-1).append(current_ul);

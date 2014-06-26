@@ -249,7 +249,7 @@ sup {
 
 <h3><span id="section"><code>jquery.sections.toc.js</code></span></h3>
 
-<p>Section is based on the <code>&lt;section&gt;&lt;hx&gt;...&lt;/hx&gt;...&lt;/section&gt;</code> or <code>&lt;main&gt;&lt;hx&gt;...&lt;/hx&gt;...&lt;/main&gt;</code> type structures (note that <code>&lt;main&gt;</code> <a href="http://www.w3.org/TR/html5/grouping-content.html#the-main-element">can appear only once</a>). The "depth" of the hierarchy of <code>&lt;section&gt;</code>/<code>&lt;main&gt;</code> elements is used for sectioning and TOC control; the header itself can be any of <code>&lt;h1&gt;...&lt;h6&gt;</code>, they are all treated equally. To make styling easier, the class of each of these header elements are extended to a class reflecting their position in the hierarchy, i.e., <code>headertoclevel1</code> to <code>headertoclevel6</code>.</p>
+<p>Section is based on the <code>&lt;section&gt;&lt;hx&gt;...&lt;/hx&gt;...&lt;/section&gt;</code> type structures. The "depth" of the hierarchy of <code>&lt;section&gt;</code> elements is used for sectioning and TOC control; the header itself can be any of <code>&lt;h1&gt;...&lt;h6&gt;</code>, they are all treated equally. To make styling easier, the class of each of these header elements are extended to a class reflecting their position in the hierarchy, i.e., <code>headertoclevel1</code> to <code>headertoclevel6</code>.</p>
 
 <h4><span id="sectioncontrol">Special attributes</span></h4>
 
@@ -269,7 +269,7 @@ sup {
 
 <ul>
 <li>in the <a href="#header">"headers" version</a>: the value of 1,2,3,4, or 5 sets the maximum depth used. Setting it to the value of "1" means that only the <code>h2</code> element is used; a value of "5" means that all headers will be included until <code>h6</code> (the default case). If the value is "0", the TOC generation is switched off altogether.</li>
-<li>in the <a href="#section">"sections" version</a>: the value of 1,2,3,4, or 5 sets the maximum depth used. Setting it to the value of "1" means that only the top level <code>&lt;section&gt;</code> or <code>&lt;main&gt;</code> element is considered; value of "5" means that all <code>&lt;section&gt;</code>-s until depth of 5 are used (default). If the value is "0", the TOC generation is switched off altogether.</li>
+<li>in the <a href="#section">"sections" version</a>: the value of 1,2,3,4, or 5 sets the maximum depth used. Setting it to the value of "1" means that only the top level <code>&lt;section&gt;</code> element is considered; value of "5" means that all <code>&lt;section&gt;</code>-s until depth of 5 are used (default). If the value is "0", the TOC generation is switched off altogether.</li>
 </ul>
 </li>
 </ul>

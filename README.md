@@ -76,7 +76,7 @@ This version uses the traditional `<h2>...</h6>` elements in document order and 
 
 ### [`jquery.sections.toc.js`](id:section)
 
-Section is based on the `<section><hx>...</hx>...</section>` or `<main><hx>...</hx>...</main>` type structures (note that `<main>` [can appear only once](http://www.w3.org/TR/html5/grouping-content.html#the-main-element)). The "depth" of the hierarchy of `<section>`/`<main>` elements is used for sectioning and TOC control; the header itself can be any of `<h1>...<h6>`, they are all treated equally. To make styling easier, the class of each of these header elements are extended to a class reflecting their position in the hierarchy, i.e., `headertoclevel1` to `headertoclevel6`.
+Section is based on the `<section><hx>...</hx>...</section>` type structures. The "depth" of the hierarchy of `<section>` elements is used for sectioning and TOC control; the header itself can be any of `<h1>...<h6>`, they are all treated equally. To make styling easier, the class of each of these header elements are extended to a class reflecting their position in the hierarchy, i.e., `headertoclevel1` to `headertoclevel6`.
 
 #### [Special attributes](id:sectioncontrol)
 
@@ -90,4 +90,4 @@ Special attributes on the ``head`` element can be used for a global control:
 * `@data-tochidden`: sets the initial visibility of the TOC; by default it is visible (and can be toggled by clicking on it). By adding this attribute the TOC is initially invisible (only the title is displayed).
 * `@data-tocmaxlevel=N`: sets the "depth" of the TOC. 
 	* in the ["headers" version](#header): the value of 1,2,3,4, or 5 sets the maximum depth used. Setting it to the value of "1" means that only the `h2` element is used; a value of "5" means that all headers will be included until `h6` (the default case). If the value is "0", the TOC generation is switched off altogether. 
-	* in the ["sections" version](#section): the value of 1,2,3,4, or 5 sets the maximum depth used. Setting it to the value of "1" means that only the top level `<section>` or `<main>` element is considered; value of "5" means that all `<section>`-s until depth of 5 are used (default). If the value is "0", the TOC generation is switched off altogether. 
+	* in the ["sections" version](#section): the value of 1,2,3,4, or 5 sets the maximum depth used. Setting it to the value of "1" means that only the top level `<section>` element is considered; value of "5" means that all `<section>`-s until depth of 5 are used (default). If the value is "0", the TOC generation is switched off altogether. 
