@@ -1,5 +1,7 @@
 # Table of Content (TOC) script
 
+> **Outdated and closed: I do not use JQuery any more. I have created an [updated, vanilla JS based version](https://github.com/iherman/doc-toc) instead.**
+
 Dynamic Table of Content (TOC) generation based on jQuery. 
 
 ## Usage
